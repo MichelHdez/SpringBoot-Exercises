@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Editar</title>
+</head>
+<body>
+	<tbody>
+		<h1>Editar Tabla Frutas</h1>
+		<br>
+		
+		<a th:href="@{/FrutaCtrl/inicio}">Regresar</a>
+		<br>
+		
+		<form th:action="@{/FrutaCtrl/editar}" method="post" th:object="${fruta}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}">
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}">
+			
+			<label for="precio">Precio</label>
+			<input type="text" name="precio" th:field="*{precio}">
+			
+			<label for="color">Color</label>
+			<input type="text" name="color" th:field="*{color}">
+		
+			<input type="submit" name="editar" value="Editar">
+		</form>
+</body>
+</html>
