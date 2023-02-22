@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Página Inicio Bebidas</title>
+</head>
+<body>
+	<h1>Gestión de Bebidas</h1>
+	<br>
+	<a th:href="@{/BebidaCtrl/abrirGuardar}">Guardar</a>
+	<br>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Marca</th>
+				<th>Precio</th>
+				<th>Contenido Neto</th>
+				<th>Editar</th>
+				<th>Elilminar</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		<tr th:each="e : ${lista}">
+		<td th:text="${e.id}">Id</td>
+		<td th:text="${e.nombre}">Nombre</td>
+		<td th:text="${e.marca}">Marca</td>
+		<td th:text="${e.precio}">Precio</td>
+		<td th:text="${e.cont_neto}">Contenido Neto</td>
+		<td><a th:href="@{/BebidaCtrl/abrirEditar/}+${e.id} "th:text="Editar"><a></td>
+		<td><a th:href="@{/BebidaCtrl/abrirEliminar/}+${e.id} "th:text="Eliminar"><a></td>
+		
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+</body>
+</html>
