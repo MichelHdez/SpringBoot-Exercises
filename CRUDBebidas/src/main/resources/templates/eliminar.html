@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Eliminar</title>
+</head>
+<body>
+	<tbody>
+		<h1>Eliminar Bebidas</h1>
+		
+		<br>
+		<a th:href="@{/BebidasCtrl/inicio}">Regresar</a>
+		<br>
+		
+		<form th:action="@{/BebidasCtrl/eliminar}" method="post" th:object="${bebidas}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}" readonly>
+			<br>
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}" readonly>
+			<br>
+			
+			<label for="marca">Marca</label>
+			<input type="text" name="marca" th:field="*{marca}" readonly>
+			<br>
+			
+			<label for="sabor">Sabor</label>
+			<input type="text" name="sabor" th:field="*{sabor}" readonly>
+			<br>
+			
+			<label for="cantidad">Cantidad</label>
+			<input type="text" name="cantidad" th:field="*{cantidad}" readonly>
+			<br>
+			
+			<label for="precio">Precio</label>
+			<input type="text" name="precio" th:field="*{precio}" readonly>
+			<br>
+			
+			<input type="submit" name="eliminar" value="Eliminar">
+		</form>
+</body>
+</html>
