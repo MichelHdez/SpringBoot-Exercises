@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Página Anuncio</title>
+</head>
+<body>
+	<h1>Gestión de Anuncios</h1>
+	<br>
+	<a th:href="@{/AnuncioCtrl/abrirGuardar}">Guardar</a>
+	<br>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Asunto</th>
+				<th>Ver Anuncio Completo</th>
+				<th>Editar</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+		<tr th:each="e : ${lista}">
+		<td th:text="${e.id}">Id</td>
+		<td th:text="${e.nombre}">Nombre</td>
+		<td th:text="${e.asunto}">Asunto</td>
+		<td><a th:href="@{/AnuncioCtrl/abrirDescripcion/}+${e.id} "th:text="Ver"><a>Descripción</td>
+		<td><a th:href="@{/AnuncioCtrl/abrirEditar/}+${e.id} "th:text="Editar"><a></td>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+</body>
+</html>

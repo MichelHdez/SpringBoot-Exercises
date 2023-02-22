@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Eliminar</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<tbody>
+		<h1>Eliminar Anuncio</h1>
+		
+		<br>
+		<a th:href="@{/AnuncioCtrl/inicio}">Regresar</a>
+		<br>
+		
+		<form th:action="@{/AnuncioCtrl/eliminar}" method="post" th:object="${anuncio}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}" readonly>
+			<br>
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}" readonly>
+			<br>
+			
+			<label for="apellido">Asunto</label>
+			<input type="text" name="asunto" th:field="*{asunto}" readonly>
+			<br>
+			
+			<label for="sexo">Descripcion</label>
+			<input type="text" name="descripcion" th:field="*{descripcion}" readonly>
+			<br>
+			
+			<input type="submit" name="eliminar" value="Eliminar" readonly>
+		</form>
+</body>
+</html>

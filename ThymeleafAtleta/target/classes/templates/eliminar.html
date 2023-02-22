@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Eliminar</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<tbody>
+		<h1>Eliminar Atletas</h1>
+		
+		<br>
+		<a th:href="@{/AtletaCtrl/inicio}">Regresar</a>
+		<br>
+		
+		<form th:action="@{/AtletaCtrl/eliminar}" method="post" th:object="${atleta}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}" readonly>
+			<br>
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}" readonly>
+			<br>
+			
+			<label for="apellido">Apellido</label>
+			<input type="text" name="apellido" th:field="*{apellido}" readonly>
+			<br>
+			
+			<label for="sexo">Sexo</label>
+			<input type="text" name="sexo" th:field="*{sexo}" readonly>
+			<br>
+			
+			<label for="equipo">Equipo</label>
+			<input type="text" name="equipo" th:field="*{equipo}" readonly>
+			<br>
+			
+			<input type="submit" name="eliminar" value="Eliminar" readonly>
+		</form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Editar</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<tbody>
+		<h1>Editar Tabla de Atletas</h1>
+		<br>
+		
+		<a th:href="@{/AtletaCtrl/inicio}">Regresar</a>
+		<br>
+		
+		<form th:action="@{/AtletaCtrl/editar}" method="post" th:object="${atleta}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}">
+			<br>
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}">
+			<br>
+			
+			<label for="apellido">Apellido</label>
+			<input type="text" name="apellido" th:field="*{apellido}">
+			<br>
+			
+			<label for="sexo">Sexo</label>
+			<input type="text" name="sexo" th:field="*{sexo}">
+			<br>
+			
+			<label for="equipo">Equipo</label>
+			<input type="text" name="equipo" th:field="*{equipo}">
+			<br>
+			
+			<input type="submit" name="editar" value="Editar">
+		</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index Atletas</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<h1>Gestión de Atletas</h1>
+	<br>
+	<a th:href="@{/AtletaCtrl/abrirGuardar}">Guardar</a>
+	<br>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Sexo</th>
+				<th>Equipo</th>
+				<th>Editar</th>
+				<th>Elilminar</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		<tr th:each="e : ${lista}">
+		<td th:text="${e.id}">Id</td>
+		<td th:text="${e.nombre}">Nombre</td>
+		<td th:text="${e.apellido}">Apellido</td>
+		<td th:text="${e.sexo}">Sexo</td>
+		<td th:text="${e.equipo}">Equipo</td>
+		<td><a th:href="@{/AtletaCtrl/abrirEditar/}+${e.id} "th:text="Editar"><a></td>
+		<td><a th:href="@{/AtletaCtrl/abrirEliminar/}+${e.id} "th:text="Eliminar"><a></td>
+		
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+</body>
+</html>

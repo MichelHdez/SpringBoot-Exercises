@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alta de Anuncios</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<tbody>
+		<h1>Agregar Su Anuncio</h1>
+		<br>
+		
+		<form th:action="@{/AnuncioCtrl/guardar}" method="post" th:object="${anuncio}">
+			<label for="id">Id 
+			</label><input type="text" name="id" th:field="*{id}">
+			<br>
+			
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}">
+			<br>
+			
+			<label for="asunto">Asunto</label>
+			<input type="text" name="asunto" th:field="*{asunto}">
+			<br>
+			
+			<label for="descripcion">Descripción</label>
+			<input type="text" name="descripcion" th:field="*{descripcion}">
+			<br>
+					
+			<input type="submit" name="guardar" value="Guardar">
+		</form>
+</body>
+</html>
