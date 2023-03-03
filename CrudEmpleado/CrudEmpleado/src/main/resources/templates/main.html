@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" xmlns: th="https://www.thymeleaf.org">
+<head>
+	<meta charset = "utf-8">
+	<title> CrudEmpleado</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- NARVAR-->
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Guardar Empleado</a>
+        <a class="nav-link" href="#">Guardar Departamento</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<h1>Lista de Empleados</h1>
+	<br>
+	<a th:href="@{/abrGuardar}" class="btn btn-success" aria-current="page">Guardar Empleado</a>
+	<br>
+	<br>
+		<table class="table" border="1">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nombre</th>
+				<th scope="col">Apellidos</th>
+				<th>Genero</th>
+				<th>Correo</th>
+				<th>Telefono</th>
+				<th>Id Departamento</th>
+				<td>Editar</td>
+				<td>Eliminar</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="e : ${lista}"> 
+				<td th:text="${e.id}">Id</td>
+				<td th:text="${e.nombre}">Nombre</td>
+				<td th:text="${e.app}">Apellidos</td>
+				<td th:text="${e.genero}">Genero</td>
+				<td th:text="${e.correo}">Correo</td>
+				<td th:text="${e.telefono}">Telefono</td>
+				<td th:text="${e.departamento.id}">Id Departamento</td>
+				<td><a th:href="@{/abrEditar/}+${e.id}" th:text="Editar" class="btn btn-warning" aria-current="page"></a></td>
+				<td><a th:href="@{/abrEliminar/}+${e.id}" th:text="Eliminar" class="btn btn-danger" aria-current="page"></a></td>
+			</tr>
+			
+		</tbody>
+		
+	</table>	
+	<h1>Lista de Departamentos</h1>
+	<br>
+	<a th:href="@{/abrGuardarD}" class="btn btn-success" aria-current="page">Guardar Departamento</a>
+	<br>
+	<br>
+	<table class="table" border="1">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Sueldo</th>
+				<th>Descripcion</th>
+				<td>Editar</td>
+				<td>Eliminar</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="d:${listaD}">
+				<td th:text="${d.id}">Id</td>
+				<td th:text="${d.nombre}">Nombre</td>
+				<td th:text="${d.sueldo}">Sueldo</td>
+				<td th:text="${d.descripcion}">Descripcion</td>
+				<td><a th:href="@{/abrEditarD/}+${d.id}" th:text="Editar" class="btn btn-warning" aria-current="page"></a></td>
+				<td><a th:href="@{/abrEliminarD/}+${d.id}" th:text="Eliminar" class="btn btn-danger" aria-current="page"></a></td>
+			</tr>
+		</tbody>
+	</table>
+		
+	<!-- Bootstrap JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
